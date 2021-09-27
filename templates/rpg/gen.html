@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Password Manager</title>
+    <link rel="shortcut icon" href="../../static/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+      /* #31475f */
+      hr{
+        height: 5px;
+        color:  black;
+        background-color: #31475f;
+        border: none;
+      }
+      body {
+        background: whitesmoke;
+        font-family: 'Roboto Mono', monospace;
+      }
+      h1{
+        color: #31475f;
+      }
+      #topbutton{
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        border-radius: 20px;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      .pass{
+        width: 35%;
+        min-width:450px;
+        border:3px solid white;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1.5px 5px 0 rgba(0, 0, 0, 0.19);
+        text-align:center;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/home" class="btn" style="float: left;color:black;font-size:35px;"><i class="bi bi-arrow-left-square-fill"></i></a>
+    <div class="container" id = "content">
+      <center>
+      <h1><b>Add Password</b></h1>
+      <br>
+      <div style="width: 30%;border-radius:5px;min-width:350px;height:320px;">
+      <form action="/generate" method="POST">
+          <input class="form-control" type="text" placeholder="eg. Amazon, Youtube" name="acc_type" style="margin-bottom: 1%;">
+          <input class="form-control" type="text" placeholder="Account username" name="acc_user" style="margin-bottom: 1%;">
+          <input class="form-control" type="password" value='{{pas}}' name="acc_pass" placeholder="password" style="margin-bottom: 1%;" id="input1">
+          <div class="form-check" style="width: fit-content;">
+            <input class="form-check-input" type="checkbox" id="sp" onclick="changebtn()">
+            <label class="form-check-label" for="sp">Show Password</label>
+          </div>
+          <br>
+          <input class="btn btn-primary" type="submit" value="Contiune">
+      </form>
+      </div>
+      <br>
+      </center>
+    </div>
+    <script>
+      function changebtn(){
+        var in1 = document.getElementById('input1')
+        if (in1.type == "password") {
+            in1.type = "text"
+        } 
+        else {
+            in1.type = "password"
+        }
+    }
+    </script>
+  </body>
+</html>
