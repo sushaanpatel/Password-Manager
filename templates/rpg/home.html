@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Password Manager</title>
+    <title>Home &middot; Unilock</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../static/favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -67,6 +67,8 @@
       <br>
       <div class="container" id="content">
         {% if passes == [] %}
+        <img src="../../static/unlock.png" alt="no password" class="img">
+        <br><br>
         <h2>No Passwords, Add some</h2>
         {% else %}
         <form action="/home" method="POST">
@@ -83,7 +85,7 @@
           <p style="font-size: 18px;">Username : {{p[2]}}</p>
           <center>
           <div class="input-group" style="width:max-content;">
-            <input type="password" class="form-control" id="{{p[0]}}" value="{{p[3]}}" disabled readonly>
+            <input type="password" class="form-control" id="{{p[0]}}" value="{{(de(p[3].encode('utf8'))).decode('utf8')}}" disabled readonly>
             <button class="btn btn-outline-dark" onclick="changebtn('{{p[0]}}')"><i class="bi bi-eye-fill"></i></button> 
           </div>
           <br>
@@ -103,8 +105,19 @@
         <br>
         <a href="/signout">sign out?</a>
         <br>
-        <a class="link" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#del_acc">delete account?</a>
-        <br>
+        <a class="link" style="cursor: pointer;margin-bottom:20px;" data-bs-toggle="modal" data-bs-target="#del_acc">delete account?</a>
+        <br><br>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for x in messages %}
+        {% if x == "err" %}
+        <script>
+            alert("An error occurred")
+        </script>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
         <script>
           function changebtn(id){
             var in1 = document.getElementById(id)
