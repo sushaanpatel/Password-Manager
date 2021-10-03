@@ -76,8 +76,14 @@ def index():
             name_res = request.form['new_username'].lower()
             password_res = request.form['new_password']
             remember = True if request.form.get('new_remember_me') else False
-            if name_res != "" and password_res != "":
-                session['err'] = "You can't leave using username or password empty" 
+            if name_res == "" and password_res == "":
+                session['err'] = "You can't leave username or password empty" 
+                return redirect('/signup')
+            if name_res == "":
+                session['err'] = "You can't leave username empty" 
+                return redirect('/signup')
+            if password_res == "":
+                session['err'] = "You can't leave password empty" 
                 return redirect('/signup')
             con.reconnect()
             db = con.cursor()
