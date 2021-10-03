@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9245113706831909"
+     crossorigin="anonymous"></script>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&family=Roboto+Mono:wght@400;700&display=swap');
       /* #31475f */
@@ -26,7 +28,7 @@
         background-size: 110% 110%;
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1.5px 5px 0 rgba(0, 0, 0, 0.19);
         width:100%;
-        height:95vh;
+        height:80vh;
         border-top-left-radius:10px;
         border-bottom-left-radius:10px;
         margin-bottom:10px;
@@ -36,7 +38,7 @@
         border-top-right-radius:10px;
         border-bottom-right-radius:10px;
         width:100%;
-        height:95vh;
+        height:80vh;
         min-width:350px;
         font-family: 'Poppins', sans-serif;
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1.5px 5px 0 rgba(0, 0, 0, 0.19);
@@ -47,8 +49,8 @@
     <div class="container-fluid" style="width:95%;margin-bottom:11px;">
       <div class="row" style="margin-top: 15px;">
         <div class="col img_div">
-          <h1 style="color:white;font-size:40px;text-align:center;margin-top:33%;min-width:350px;"><b>
-          WITH THE POWER OF UNILOCK<br>NEVER FORGET A PASSWORD EVER AGAIN</b></h1>
+          <h1 style="color:white;font-size:40px;text-align:center;margin-top:30%;min-width:350px;"><b>
+          WITH THE POWER OF UNILOCK<br>NEVER FORGET A PASSWORD EVER AGAIN</b><br><button class="btn btn-light" style="border-radius: 45%;" onclick="window.scroll(0,800)"><i style="font-size: 20px;" id="icon" class="bi bi-arrow-down"></i></button></h1>
         </div>
         <div class="col text_div"> 
           <div style="margin-top:22.5%">
@@ -62,6 +64,9 @@
           </div>
         </div> 
     </div>
+    <script>
+      document.body.scrollHeight = 50;
+    </script>
       {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for x in messages %}
